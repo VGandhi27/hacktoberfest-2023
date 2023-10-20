@@ -1,0 +1,51 @@
+A Stack is a linear data structure that holds a linear, ordered sequence of elements. It is an abstract data type. A Stack works on the LIFO process (Last In First Out), i.e., the element that was inserted last will be removed first. To implement the Stack, it is required to maintain a pointer to the top of the Stack, which is the last element to be inserted because we can access the elements only on the top of the Stack.
+
+Operations on Stack
+
+1. PUSH: PUSH operation implies the insertion of a new element into a Stack. A new element is always inserted from the topmost position of the Stack; thus, we always need to check if the top is empty or not, i.e., TOP=Max-1 if this condition goes false, it means the Stack is full, and no more elements can be inserted, and even if we try to insert the element, a Stack overflow message will be displayed.
+
+Algorithm:
+
+Step-1: If TOP = Max-1
+
+Print “Overflow”
+
+Goto Step 4
+
+Step-2: Set TOP= TOP + 1
+
+Step-3: Set Stack[TOP]= ELEMENT
+
+Step-4: END
+
+
+2. POP: POP means to delete an element from the Stack. Before deleting an element, make sure to check if the Stack Top is NULL, i.e., TOP=NULL. If this condition goes true, it means the Stack is empty, and no deletion operation can be performed, and even if we try to delete, then the Stack underflow message will be generated.
+
+Algorithm:
+
+Step-1: If TOP= NULL
+
+Print “Underflow”
+
+Goto Step 4
+
+Step-2: Set VAL= Stack[TOP]
+
+Step-3: Set TOP= TOP-1
+
+Step-4: END
+
+
+3. PEEK: When we need to return the value of the topmost element of the Stack without deleting it from the Stack, the Peek operation is used. This operation first checks if the Stack is empty, i.e., TOP = NULL; if it is so, then an appropriate message will display, else the value will return.
+
+Algorithm:
+
+Step-1: If TOP = NULL
+
+PRINT “Stack is Empty”
+
+Goto Step 3
+
+Step-2: Return Stack[TOP]
+
+Step-3: END

@@ -1,0 +1,89 @@
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    public LinkedList() {
+        this.head = null;
+    }
+
+    public void addNode(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    public void bubbleSort() {
+        if (head == null) {
+            return;
+        }
+
+        boolean swapped;
+        Node current;
+        Node last = null;
+
+        do {
+            swapped = false;
+            current = head;
+
+            while (current.next != last) {
+                if (current.data > current.next.data) {
+       
+                    int temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp;
+
+                    swapped = true;
+                }
+
+                current = current.next;
+            }
+            last = current;
+        } while (swapped);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList linkedList = new LinkedList();
+
+        linkedList.addNode(64);
+        linkedList.addNode(34);
+        linkedList.addNode(25);
+        linkedList.addNode(12);
+        linkedList.addNode(22);
+        linkedList.addNode(11);
+
+        System.out.println("Original linked list:");
+        linkedList.printList();
+
+        linkedList.bubbleSort();
+
+        System.out.println("Linked list after sorting:");
+        linkedList.printList();
+    }
+}
